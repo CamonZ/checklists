@@ -36,7 +36,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'guard-rspec'
-  gem 'rb-fsevent' if `uname` =~ /Darwin/
+  gem 'rb-fsevent'
   gem 'factory_girl_rails'
   gem 'debugger'
   gem 'database_cleaner'
