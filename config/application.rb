@@ -13,6 +13,19 @@ require "sprockets/railtie"
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+
+if defined?(Rails) && Rails.env
+  filename = if Rails.env == 'development'
+    '.env'
+  else
+    ".env_#{Rails.env}"
+  end
+  if File.exist?(filename)
+    File.readlines(filename).grep(/\A\s*\w+\=/) do |line|
+      ENV.send :[]=, *line.split('=', 2).map(&:strip)
+    end
+  end
+
 module MyChecklist
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
@@ -26,5 +39,14 @@ module MyChecklist
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    ActionMailer::Base.smtp_settings = {
+      :port           => '25',
+      :address        => ENV['POSTMARK_SMTP_SERVER'],
+      :user_name      => ENV['POSTMARK_API_KEY'],
+      :password       => ENV['POSTMARK_API_KEY'],
+      :domain         => ENV['HEROKU_APP_DOMAIN'],
+      :authentication => :plain,
+    }
+    ActionMailer::Base.delivery_method = :smtp
   end
 end
