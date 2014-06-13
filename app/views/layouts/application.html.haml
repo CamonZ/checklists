@@ -10,17 +10,7 @@
   .site-wrapper
     .site-wrapper-inner
       .cover-container
-        .masthead.clearfix
-          .inner
-            %h3.masthead-brand
-              Checklists
-            %ul.nav.masthead-nav
-              %li.active
-                = link_to "Home", "/"
-              %li
-                =link_to "Register", "/users/sign_up"
-              %li
-                =link_to "Sign-in", "/users/sign_in"
+        = render partial: "layouts/masthead"
       = yield
       .cover-container
         .mastfoot
