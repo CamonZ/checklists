@@ -25,7 +25,7 @@ if defined?(Rails) && Rails.env
       ENV.send :[]=, *line.split('=', 2).map(&:strip)
     end
   end
-
+end
 module MyChecklist
   class Application < Rails::Application
     # Settings in config/environments/* take precedence over those specified here.
