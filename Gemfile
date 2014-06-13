@@ -27,6 +27,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'haml'
 gem 'devise'
 
+gem "rails_12factor", group: :production
+
 group :development do
   gem 'spring'
   gem 'haml-rails'
