@@ -43,3 +43,7 @@ group :development, :test do
   gem 'debugger'
   gem 'database_cleaner'
 end
+
+group :test do
+  gem 'shoulda'
+end
