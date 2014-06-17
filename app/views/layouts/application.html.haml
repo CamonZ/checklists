@@ -7,14 +7,15 @@
     = javascript_include_tag "application", 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body
-  .site-wrapper
-    .site-wrapper-inner
-      .cover-container
-        = render partial: "layouts/masthead"
+    .navbar.navbar-default.navbar-fixed-top{role:"navigation"}
+      .container
+        .navbar-header
+          = link_to "Checklists", "/", :class => "navbar-brand"
+        .collapse.navbar-collapse
+          = render partial: "layouts/masthead"
+    .container
       = yield
-      .cover-container
-        .mastfoot
-          .inner
-            %p
-              A simple example for prototyping purposes
-      
+    #footer
+      .container
+        %p.text-muted
+          A simple example for prototyping purposes
