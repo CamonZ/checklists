@@ -44,26 +44,100 @@ body {
 }
 
 
+
+/* App css */
+
+.page-masthead{
+  position: relative;
+  padding: 30px 15px;
+  color: #B7C1EE;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(0,0,0,.1);
+  background-color: #3F4899;
+  background-image: -webkit-linear-gradient(top,#343C80 0,#3F4899 100%);
+  background-image: linear-gradient(to bottom,#343C80 0,#3F4899 100%);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#343C80', endColorstr='#3F4899', GradientType=0);
+}
+
+.page-masthead{ margin-bottom: 40px; }
+
+.page-masthead{
+  padding-top: 60px;
+  padding-bottom: 60px;
+  font-size: 24px;
+  text-align: left;
+}
+
+.page-masthead h1{
+  margin-top: 0px;
+  color: #fff;
+  font-size: 60px;
+  line-height: 1;
+  margin-right: 380px;
+}
+
+.page-masthead p{
+  margin-bottom: 0px;
+  font-weight: 300;
+  line-height: 1.4;
+  margin-right: 380px;
+}
+
+.navbar-static-top{ margin-bottom: 0px;}
+
+.navbar-static-top .navbar-brand {
+  font-weight: 500;
+  color: #526EBB; 
+}
+
+.navbar-static-top .navbar-nav > li > a, .nav > li > a{
+  display: block;
+  position: relative;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #526EBB;
+  padding: 15px;
+}
+
+.templates > li{
+  position:relative;
+  width: 45%
+}
+
+
+.templates > li > a:hover, .templates > li > a:focus{
+  text-decoration: none;
+  background-color: #eee;
+}
+
+.templates.list-inline > li > a{
+  position: relative;
+  line-height: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #526EBB;
+  padding: 15px;
+  display: block;
+}
+
+.page-header{
+  padding-bottom: 9px;
+  margin: 40px 0 20px;
+  border-bottom: 1px solid #eee;
+}
+
+
+
 /* Custom page CSS
 -------------------------------------------------- */
 /* Not required for template or sticky footer method. */
 
-body > .container {
-  padding: 60px 15px 0;
-}
-.container .text-muted {
-  margin: 20px 0;
-}
-
+body > .container { padding: 60px 15px 0; }
+.container .text-muted { margin: 20px 0; }
 #footer > .container {
   padding-right: 15px;
   padding-left: 15px;
 }
-
-code {
-  font-size: 80%;
-}
-
-#sign_out{
-  margin-left: 40px;
-}
+code { font-size: 80%; }

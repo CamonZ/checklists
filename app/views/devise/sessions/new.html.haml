@@ -1,0 +1,29 @@
+.page-masthead
+  %h1
+    Sign in
+  %p
+    Access all the app features
+.container
+  .col-sm-8
+    = form_for resource, as: resource_name, url: session_path(resource_name), html: {role: "form", :class => "form-horizontal clearfix"} do |f|
+      .form-group
+        = f.label :email, :class => "col-sm-4 control-label"
+        .col-sm-8
+          = f.email_field :email, autofocus: true, :class => "form-control", placeholder: "Enter Email"
+      .form-group
+        = f.label :password, :class => "col-sm-4 control-label"
+        .col-sm-8
+          = f.password_field :password, autocomplete: "off", :class => "form-control", placeholder: "Password"
+      - if devise_mapping.rememberable?
+        .form-group
+          = f.label :remember_me, :class => "col-sm-4 control-label"
+          .col-sm-8
+            = f.check_box :remember_me, :class => "form-control"
+      = f.submit "Sign in", :class => "btn btn-default pull-right"
+    %br
+    %p.pull-right{:style => "text-align: right"}
+      New User?
+      %br
+      = link_to "Sign up", new_user_registration_path
+      %br
+      = link_to "Forgot your password?", new_user_password_path

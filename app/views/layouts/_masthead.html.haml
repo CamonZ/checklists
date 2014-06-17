@@ -1,13 +1,16 @@
-%ul.nav.navbar-nav.pull-right
+-if signed_in?
+  %ul.nav.navbar-nav
+    %li
+      = link_to "Checklist Templates", checklists_path
+    %li
+      = link_to "Executed Surveys", "#"
+%ul.nav.navbar-nav.navbar-right
   -if signed_in?
     %li
-      = link_to "Templates", "#"
-    %li
-      = link_to "Checklists", "#"
-    %li#sign_out
       = link_to "Sign out", destroy_user_session_path, method: :delete
-  -else
+  - else
     %li
       =link_to "Register", "/users/sign_up"
     %li
       =link_to "Sign-in", "/users/sign_in"
+

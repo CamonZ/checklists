@@ -1,0 +1,22 @@
+.page-masthead
+  .container
+    %h1
+      Checklist Templates
+    %p
+      Create templates for surveys to be performed on field
+.container
+  %section.row
+    .col-sm-9
+      %h1.page-header
+        Your templates
+      %p.lead
+        The templates provide the items to be checked and measured on field when conducting a survey.
+      %section
+        %ul.templates.list-inline
+          - [ "Restaurant Cleanliness Checks", "Safety Indicators checks for Electric Plant", "Pre-opening checks for El Corte Ingles store", "Pre-opening checks for Ryan's Irish Pub", "Safety Indicators checks for Sewage Plant"].each do |s|
+            %li
+              =link_to s, "#"
+    .col-sm-3
+      %ul.nav
+        %li
+          = link_to "Create a new template", new_checklist_path
