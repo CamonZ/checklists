@@ -1,0 +1,26 @@
+.page-masthead
+  .container
+    %h1
+      New Checklist Template
+    %p
+      Create a new template
+.container
+  %section.col-sm-9
+    .page_header
+      %h1
+        Checklist template
+      %p.lead
+        Add a name to your template and add questions/measurements to be checked for in field
+    %br
+    = form_for :checklist, url: checklists_path, html: {role: "form", :class => "form-horizontal clearfix"} do |f|
+      .form-group
+        = f.label :name, :class => "col-sm-2 control-label"
+        .col-sm-10
+          = f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Enter Name of the Checklist"
+      = f.submit "Create", :class => "btn btn-primary pull-right"
+  %section.col-sm-3
+    %ul.nav.sidenav
+      %li
+        = link_to "Add a Yes/No Question", "", id: "yes_no_question_add"
+      %li
+        = link_to "Add an Equipment Measurement", "", id: "measurement_add"

@@ -13,9 +13,9 @@
         The templates provide the items to be checked and measured on field when conducting a survey.
       %section
         %ul.templates.list-inline
-          - [ "Restaurant Cleanliness Checks", "Safety Indicators checks for Electric Plant", "Pre-opening checks for El Corte Ingles store", "Pre-opening checks for Ryan's Irish Pub", "Safety Indicators checks for Sewage Plant"].each do |s|
+          - @checklists.each do |checklist|
             %li
-              =link_to s, "#"
+              =link_to checklist.name, checklist_path(checklist)
     .col-sm-3
       %ul.nav.sidenav
         %li
