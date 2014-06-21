@@ -14,6 +14,6 @@ class CreatingANewChecklistContext
   
 
   def accepted_param_values
-    @params.require(:checklist).permit(:name)
+    @params.require(:checklist).permit(:name, check_items_attributes: [:question, :type])
   end
 end

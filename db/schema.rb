@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140621103137) do
+ActiveRecord::Schema.define(version: 20140621203312) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20140621103137) do
     t.datetime "updated_at"
     t.integer  "user_id"
     t.string   "question"
+    t.string   "type"
   end
 
   add_index "check_items", ["user_id", "checklist_id"], name: "check_items_by_user_id_and_checklist_id_index", using: :btree
