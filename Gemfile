@@ -25,6 +25,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'haml'
+gem 'hogan_assets'
 gem 'devise'
 
 gem "rails_12factor", group: :production
@@ -46,8 +47,4 @@ end
 
 group :test do
   gem 'shoulda'
-end
-
-group :assets do
-  gem 'hogan_assets'
 end
