@@ -17,7 +17,7 @@
         = f.label :name, :class => "col-sm-3 control-label"
         .col-sm-9
           = f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Enter Name of the Checklist"
-      = f.submit "Create", :class => "btn btn-primary pull-right"
+      = f.submit "Create", :class => "btn btn-primary pull-right", id: "submit_button"
   %section.col-sm-3
     %ul.nav.sidenav
       %li#yes_no_question_add.btn.btn-success
