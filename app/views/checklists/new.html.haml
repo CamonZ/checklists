@@ -12,11 +12,17 @@
       %p.lead
         Add a name to your template and add questions/measurements to be checked for in field
     %br
-    = form_for :checklist, url: checklists_path, html: {role: "form", :class => "form-horizontal clearfix"} do |f|
+    = form_for @checklist, url: checklists_path, html: {role: "form", :class => "form-horizontal clearfix"} do |f|
       .form-group
-        = f.label :name, :class => "col-sm-2 control-label"
-        .col-sm-10
+        = f.label :name, :class => "col-sm-3 control-label"
+        .col-sm-9
           = f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Enter Name of the Checklist"
+      = f.fields_for :check_items do |cif|
+        .form-group
+          = cif.hidden_field :type, value: "binary"
+          = cif.label :question, "Yes/No Question", :class => "col-sm-3 control-label"
+          .col-sm-9
+            =cif.text_field :question, :class => "form-control", placeholder: "Enter Text for Yes/No Question"
       = f.submit "Create", :class => "btn btn-primary pull-right"
   %section.col-sm-3
     %ul.nav.sidenav

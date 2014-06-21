@@ -4,6 +4,9 @@ class ChecklistsController < ApplicationController
   end
 
   def new
+    @checklist = Checklist.new
+
+    @checklist.check_items << CheckItem.new
   end
 
   def create
