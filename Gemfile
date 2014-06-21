@@ -47,3 +47,7 @@ end
 group :test do
   gem 'shoulda'
 end
+
+group :assets do
+  gem 'hogan_assets'
+end
