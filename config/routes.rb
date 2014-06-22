@@ -3,8 +3,8 @@ Rails.application.routes.draw do
   resources :checklists
 
   get "/dashboard" => "dashboard#show", as: "dashboard"
-  devise_for :users
-  
+  devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }
+
   authenticated :user do
     root to: "dashboard#show", as: :authenticated_root
   end

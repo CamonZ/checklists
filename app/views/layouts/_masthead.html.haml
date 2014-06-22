@@ -9,8 +9,9 @@
     %li
       = link_to "Sign out", destroy_user_session_path, method: :delete
   - else
-    %li
-      =link_to "Register", "/users/sign_up"
-    %li
-      =link_to "Sign-in", "/users/sign_in"
+    %li#google_sign_in
+      %a{href: user_omniauth_authorize_path(:google_oauth2)}
+        %img{src: asset_path("btn_red.png")}
+        %span
+          Sign in with Google
 
