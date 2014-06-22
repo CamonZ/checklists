@@ -1,4 +1,5 @@
 class ChecklistsController < ApplicationController
+  before_action :authenticate_user!
   def index
     @checklists = Checklist.for_user(current_user.id)
   end
