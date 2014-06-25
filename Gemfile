@@ -26,11 +26,14 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'haml'
 gem 'hogan_assets'
+
 gem 'devise'
 gem 'omniauth'
 gem 'omniauth-google-oauth2'
 
 gem "rails_12factor", group: :production
+
+gem 'doorkeeper'
 
 group :development do
   gem 'spring'
