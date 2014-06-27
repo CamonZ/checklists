@@ -1,8 +1,9 @@
 class UserAuthentication::FindOrCreateUserFromGoogleOauth2Context
   attr_reader :auth_data
 
-  def initialize(env)
-    @auth_data = env['omniauth.auth']
+  def initialize(data)
+    data = Hashie::Mash.new(accepted_params_api(data)) if data.class == ActionController::Parameters
+    @auth_data = data
   end
 
   def execute
@@ -14,5 +15,11 @@ class UserAuthentication::FindOrCreateUserFromGoogleOauth2Context
       user.name = auth_data.info.name
       user.image_url = auth_data.info.image
     end
+  end
+
+  private
+
+  def accepted_params_api(params)
+    params.permit(:uid, :provider, credentials: [:token], info: [:email, :name, :image, :first_name, :last_name])
   end
 end

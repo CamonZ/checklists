@@ -1,6 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google_oauth2
-    ctx = UserAuthentication::FindOrCreateUserFromGoogleOauth2Context.new(request.env)
+    ctx = UserAuthentication::FindOrCreateUserFromGoogleOauth2Context.new(request.env['omniauth.auth'])
 
     @user = ctx.execute
 
