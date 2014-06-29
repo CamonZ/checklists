@@ -4,6 +4,6 @@ class ApiSurveysForUserContext < ApiBaseContext
   end
 
   def execute
-    Checklists.where(user_id: @user_id).select(:id, :name, :description).all
+    { surveys: Checklist.where(user_id: @user_id).select(:id, :name, :description).all }
   end
 end
