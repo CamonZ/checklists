@@ -17,6 +17,11 @@
         = f.label :name, :class => "col-sm-3 control-label"
         .col-sm-9
           = f.text_field :name, autofocus: true, :class => "form-control", placeholder: "Enter Name of the Checklist"
+      .form-group
+        = f.label :description, :class => "col-sm-3 control-label"
+        .col-sm-9
+          = f.text_field :description, autofocus: true, :class => "form-control", placeholder: "Enter A Brief Description"
+
       = f.submit "Create", :class => "btn btn-primary pull-right", id: "submit_button"
   %section.col-sm-3
     %ul.nav.sidenav
