@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :checklist do
+    name "test"
+    description "this is a simple checklist"
   end
 end
