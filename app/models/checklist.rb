@@ -5,4 +5,6 @@ class Checklist < ActiveRecord::Base
   accepts_nested_attributes_for :check_items
   
   scope :for_user, ->(user_id) { where(:user_id => user_id) }
+
+  validates_presence_of :name, :description
 end
