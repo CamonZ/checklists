@@ -2,6 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: 'json' } do
     namespace :v1 do
+      get "dashboard", controller: "dashboard", action: :index
       post "users/sign_in", controller: "users"
     end
   end
