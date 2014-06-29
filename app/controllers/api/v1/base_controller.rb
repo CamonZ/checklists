@@ -15,7 +15,7 @@ module Api
       end
 
       def set_current_user
-        @current_user = User.where(uid: params['headers']['UserUID'])
+        @current_user = User.where(uid: request.headers['UserUID']).first
       end
 
       def set_response_headers
