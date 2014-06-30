@@ -4,7 +4,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       get "dashboard", controller: "dashboard", action: :index
       post "users/sign_in", controller: "users"
+
       resources :checklists, only: [:index, :show]
+      resources :surveys, only: [:create]
     end
   end
 

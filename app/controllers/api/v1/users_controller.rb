@@ -9,7 +9,7 @@ module Api
         @user = ctx.execute
 
         status = @user.persisted? ? :ok : :unprocessable_entity
-        render json: @user.to_json(:only => :id), status: status
+        render json: {}, status: status_from_persistence(@user)
       end
     end
   end

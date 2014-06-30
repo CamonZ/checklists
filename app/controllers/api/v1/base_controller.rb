@@ -21,6 +21,10 @@ module Api
       def set_response_headers
         response.headers["Cache-Control"] = 'no-store'
       end
+
+      def status_from_persistence(instance)
+        (instance.persisted? ? :ok : :unprocessable_entity)
+      end
     end
   end
 end

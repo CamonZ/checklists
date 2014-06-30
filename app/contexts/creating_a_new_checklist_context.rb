@@ -14,9 +14,9 @@ class CreatingANewChecklistContext
   
 
   def accepted_param_values
-    @params.require(:checklist).permit(
-      :name, 
-      :description,
-      check_items_attributes: [:question, :type])
+    @params.
+      require(:checklist).
+      permit( :name, :description, check_items_attributes: [:question, :type]).
+      merge({user_id: @user_id})
   end
 end
