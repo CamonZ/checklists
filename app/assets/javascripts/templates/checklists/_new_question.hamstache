@@ -3,7 +3,7 @@
   %label.col-sm-3.control-label{:for=>"checklist_check_items_attributes_{{number}}_question"}
     Yes/No Question
   .col-sm-7
-    %input.form-control{id: "checklist_check_items_attributes_{{number}}_type", name: "checklist[check_items_attributes][{{number}}][type]", placeholder: "Enter Text for Yes/No Question", type: "text"}
+    %input.form-control{id: "checklist_check_items_attributes_{{number}}_type", name: "checklist[check_items_attributes][{{number}}][question]", placeholder: "Enter Text for Yes/No Question", type: "text"}
   .col-sm-2
     %button.btn.btn-danger.pull-right.remove_question_button
       Remove
