@@ -21,11 +21,10 @@
         = f.label :description, :class => "col-sm-3 control-label"
         .col-sm-9
           = f.text_field :description, autofocus: true, :class => "form-control", placeholder: "Enter A Brief Description"
-
-      = f.submit "Create", :class => "btn btn-primary pull-right", id: "submit_button"
+      - button_text = @checklist.new_record? ? "Create" : "Save"
+      - button_class = "btn pull-right " + (@checklist.new_record? ? "btn-primary" : "btn-success")
+      = f.submit button_text, :class => button_class, id: "submit_button"
   %section.col-sm-3
     %ul.nav.sidenav
       %li#yes_no_question_add.btn.btn-success
         Add a Yes/No Question
-      %li#measurement_question_add.btn.btn-success
-        Add an Equipment Measurement
