@@ -1,4 +1,4 @@
-class ApiSurveysForUserContext < ApiBaseContext
+class ApiChecklistsForUserContext < ApiBaseContext
   def initialize(user_id)
     super
   end

@@ -1,4 +1,4 @@
-class ApiSurveyForUserContext < ApiBaseContext
+class ApiChecklistForUserContext < ApiBaseContext
   def initialize(user_id, survey_id)
     super(user_id)
     @survey_id = survey_id
