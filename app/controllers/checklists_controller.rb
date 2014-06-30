@@ -1,6 +1,6 @@
 class ChecklistsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_checklist, only: [:edit, :show]
+  before_action :set_checklist, only: [:edit, :update, :show]
   def index
     @checklists = Checklist.for_user(current_user.id)
   end
@@ -29,11 +29,17 @@ class ChecklistsController < ApplicationController
   end
 
   def update
+    @checklist.update_attributes(update_params)
   end
 
   private
 
   def set_checklist
     @checklist = Checklist.where(id: params[:id]).first
+  end
+
+  def update_params
+    params.require(:checklist).
+      permit(:name, :description, check_items_attributes: [:id, :question, :type])
   end
 end
