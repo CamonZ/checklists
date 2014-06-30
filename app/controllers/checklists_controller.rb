@@ -30,6 +30,7 @@ class ChecklistsController < ApplicationController
 
   def update
     @checklist.update_attributes(update_params)
+    redirect_to checklists_path
   end
 
   private
