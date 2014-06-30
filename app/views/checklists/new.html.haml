@@ -24,7 +24,8 @@
           = f.text_field :description, autofocus: true, :class => "form-control", placeholder: "Enter A Brief Description"
       = f.fields_for :check_items, @checklist.check_items  do |cif|
         .form-group
-          =cif.hidden_field :type
+          = cif.hidden_field :id
+          = cif.hidden_field :type
           = cif.label :question, "Yes/No question", :class => "col-sm-3 control-label"
           .col-sm-7
             = cif.text_field :question, :class => "form-control", placeholder: "Enter Name of the Checklist"
