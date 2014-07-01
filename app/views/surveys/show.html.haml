@@ -15,7 +15,7 @@
         %ul.surveys
           - @survey.check_item_results.each do |result|
             %li
-              -value_str = result.value ? "Yes" : "No"
+              -value_str = result.value != 0 ? "Yes" : "No"
               = "#{result.check_item.question}: " + value_str
     .col-sm-3
       %ul.nav.sidenav
