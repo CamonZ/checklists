@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
   use_doorkeeper
   
-  resources :checklists
+  resources :checklists do
+    resources :surveys, only: [:index, :show]
+  end
 
   get "/dashboard" => "dashboard#show", as: "dashboard"
   devise_for :users, controllers: { omniauth_callbacks: "users/omniauth_callbacks" }

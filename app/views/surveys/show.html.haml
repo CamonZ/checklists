@@ -1,0 +1,21 @@
+.page-masthead
+  .container
+    %h1
+      Survey Results
+    %p
+      Results for a given survey
+.container
+  %section.row
+    .col-sm-9
+      %h1.page-header
+        = "Results for Survey for survey #{@survey.id}" 
+      %p.lead
+        These are the following results for the survey
+      %section
+        %ul.surveys
+          - @survey.check_item_results.each do |result|
+            %li
+              -value_str = result.value ? "Yes" : "No"
+              = "#{result.check_item.question}: " + value_str
+    .col-sm-3
+      %ul.nav.sidenav

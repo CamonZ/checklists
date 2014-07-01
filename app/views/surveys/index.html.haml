@@ -1,0 +1,20 @@
+.page-masthead
+  .container
+    %h1
+      Surveys
+    %p
+      Surveys for a given checklist
+.container
+  %section.row
+    .col-sm-9
+      %h1.page-header
+        = "Surveys for checklist #{@checklist.id}" 
+      %p.lead
+        = @checklist.name
+      %section
+        %ul.surveys
+          - @surveys.each do |survey|
+            %li
+              =link_to survey.created_at.strftime("%m/%d/%Y %H:%M:%S"), checklist_survey_path(id: survey.id, checklist_id: survey.checklist_id)
+    .col-sm-3
+      %ul.nav.sidenav

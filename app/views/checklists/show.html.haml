@@ -18,3 +18,5 @@
           = check_item.question
     %br
     = link_to "Edit", edit_checklist_path(@checklist), :class => "pull-right"
+    %br
+    = link_to "Surveys for this Checklist", checklist_surveys_path(@checklist), :class => "pull-right"
