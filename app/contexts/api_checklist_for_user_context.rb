@@ -1,14 +1,14 @@
 class ApiChecklistForUserContext < ApiBaseContext
-  def initialize(user_id, checklist_id)
-    super(user_id)
+  def initialize(user, checklist_id)
+    super(user)
     @checklist_id = checklist_id
   end
 
   def execute
-    Checklist.
-      where(:id => @checklist_id, user_id: @user_id).
+    Checklist.for_user(@user).
+      where(:id => @checklist_id).
       select(:id, :name, :description).
       includes(:check_items).
-      first    
+      first
   end
 end

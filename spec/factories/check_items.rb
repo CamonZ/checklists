@@ -3,6 +3,6 @@
 FactoryGirl.define do
   factory :check_item do
     checklist
-    user
+    user { checklist.user }
   end
 end

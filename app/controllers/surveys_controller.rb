@@ -1,6 +1,6 @@
 class SurveysController < ApplicationController
   def index
-    @checklist = Checklist.where(id: params[:checklist_id], user_id: current_user.id).first
+    @checklist = Checklist.for_user(current_user).where(id: params[:checklist_id]).first
     @surveys = Survey.where(checklist_id: params[:checklist_id], user_id: current_user.id).all
   end
 

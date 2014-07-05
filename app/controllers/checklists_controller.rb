@@ -2,7 +2,7 @@ class ChecklistsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_checklist, only: [:edit, :update, :show]
   def index
-    @checklists = Checklist.for_user(current_user.id)
+    @checklists = Checklist.for_user(current_user)
   end
 
   def new
