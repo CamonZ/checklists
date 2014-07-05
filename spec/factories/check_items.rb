@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :check_item do
+    checklist
+    user { checklist.user }
   end
 end

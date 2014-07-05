@@ -1,5 +1,5 @@
 class ApiBaseContext
-  def initialize(user_id)
-    @user_id = user_id
+  def initialize(user)
+    @user = user
   end
 end

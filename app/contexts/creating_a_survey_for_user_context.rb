@@ -1,6 +1,6 @@
 class CreatingASurveyForUserContext < ApiBaseContext
-  def initialize(user_id, params)
-    super(user_id)
+  def initialize(user, params)
+    super(user)
     @params = params
   end
 
@@ -16,6 +16,6 @@ class CreatingASurveyForUserContext < ApiBaseContext
     @params.
       require(:survey).
       permit(:checklist_id, check_item_results_attributes: [:check_item_id, :value]).
-      merge({user_id: @user_id})
+      merge({user_id: @user.id})
   end
 end
