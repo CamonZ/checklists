@@ -2,5 +2,7 @@
 
 FactoryGirl.define do
   factory :measurement do
+    check_item
+    user
   end
 end

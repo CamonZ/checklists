@@ -2,5 +2,9 @@
 
 FactoryGirl.define do
   factory :check_item_result do
+    value 0.0
+    survey
+    check_item
+    user
   end
 end
