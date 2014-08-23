@@ -9,12 +9,9 @@ class UserAuthentication::AuthorizeUserFromTokenContext
   def execute
     response = {}
     create_user_context = FindOrCreateUserFromGoogleOauth2Context.new(auth_hash)
-    @user = create_user_context.execute
-    #create our API token for the user and return that shit.
-    response[:token] = create_api_token if(@user.persisted?)
-    response
+    user = create_user_context.execute
+    user.update_attribute(:provider_token, @request_data.google_token)
   end
-
 
   private
 
@@ -24,9 +21,6 @@ class UserAuthentication::AuthorizeUserFromTokenContext
     :token_url     => '/o/oauth2/token'
   }
 
-  def create_api_token
-    nil
-  end
 
   def accepted_params_api(params)
     params.permit(:client_id, :client_secret, :google_token)
