@@ -8,6 +8,10 @@ Doorkeeper.configure do
     current_user || warden.authenticate!(:scope => :user)
   end
 
+  resource_owner_from_credentials do |routes|
+    User.where(uid: params[:uid], provider_token: params[:provider_token]).first
+  end
+
   skip_authorization do
     true
   end
