@@ -10,7 +10,7 @@ class UserAuthentication::AuthorizeUserFromTokenContext
     response = {}
     create_user_context = FindOrCreateUserFromGoogleOauth2Context.new(auth_hash)
     user = create_user_context.execute
-    user.update_attribute(:provider_token, @request_data.google_token)
+    user.update_attribute(:provider_token, @request_data.provider_token)
   end
 
   private
@@ -23,7 +23,7 @@ class UserAuthentication::AuthorizeUserFromTokenContext
 
 
   def accepted_params_api(params)
-    params.permit(:client_id, :client_secret, :google_token)
+    params.permit(:client_id, :client_secret, :provider_token)
   end
 
   def client
@@ -34,7 +34,7 @@ class UserAuthentication::AuthorizeUserFromTokenContext
   end
 
   def access_token
-    client.auth_code.get_token(@request_data.google_token, { :redirect_uri => 'postmessage'}, {})
+    @access_token ||= ::OAuth2::AccessToken.new(client, @request_data.provider_token)
   end
 
   def raw_info
