@@ -33,13 +33,6 @@ describe UserAuthentication::AuthorizeUserFromTokenContext do
       end
     end
 
-    describe "when testing #access_token" do
-      it "should request the access token from google" do
-        expect(@client.auth_code).to receive(:get_token).with(@params.google_token, { :redirect_uri => 'postmessage'}, {})
-        @context.send(:access_token)
-      end
-    end
-
     describe "when testing #raw_info" do
 
     end
