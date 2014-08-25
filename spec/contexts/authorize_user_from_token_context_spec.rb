@@ -1,26 +1,6 @@
 require 'rails_helper'
 
 describe UserAuthentication::AuthorizeUserFromTokenContext do
-  describe "when first authenticating the access token from the mobile client" do
-    describe "and the request is with a valid token" do
-      it "should get the info of a new user" do
-        stub_request(:get, "https://accounts.google.com/o/oauth2/token?access_token=valid_token&verify=true").
-          with(:headers => {'Authorization'=>'Token token="valid_token"'}).
-          to_return(File.new("#{Rails.root}/spec/fixtures/requests/valid_oauth_verify_profile_response.txt"))
-        pending
-      end
-    end
-
-    describe "and the request is with an invalid token " do
-      it "should return an error" do
-        stub_request(:get, "https://accounts.google.com/o/oauth2/token?access_token=invalid_token&verify=true").
-          with(:headers => {'Authorization'=>'Token token="invalid_token"'}).
-          to_return(File.new("#{Rails.root}/spec/fixtures/requests/invalid_oauth_verify_profile_response.txt"))
-        pending
-      end
-    end
-  end
-
   describe "when testing the private methods" do
     before :each do
       @params = Hashie::Mash.new({
